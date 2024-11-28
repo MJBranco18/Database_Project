@@ -20,14 +20,13 @@ CREATE TABLE USER (
     height INT NOT NULL,
     weight INT NOT NULL,
     age INT NOT NULL;
-    gender VARCHAR(10) NOT NULL,
     FOREIGN KEY (gym_id) REFERENCES GYM(gym_id)
     FOREIGN KEY (gender_id) REFERENCES GENDER(gender_id)
 );
 
 CREATE TABLE GENDER (
     gender_id INT UNIQUE PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    gender_name VARCHAR(100) NOT NULL
 )
 
 CREATE TABLE NUTRITIONIST (
