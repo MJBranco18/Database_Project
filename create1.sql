@@ -19,8 +19,10 @@ CREATE TABLE USER (
     name VARCHAR(100) NOT NULL,
     height INT NOT NULL,
     weight INT NOT NULL,
-    age INT NOT NULL;
-    FOREIGN KEY (gym_id) REFERENCES GYM(gym_id)
+    age INT NOT NULL,
+    gender_id INT,
+    gym_id INT,
+    FOREIGN KEY (gym_id) REFERENCES GYM(gym_id),
     FOREIGN KEY (gender_id) REFERENCES GENDER(gender_id)
 );
 
@@ -31,27 +33,27 @@ CREATE TABLE GENDER (
 
 CREATE TABLE NUTRITIONIST (
     nutritionist_number INT UNIQUE PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT,
     salary INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES USER(user_id),
 );
 
 CREATE TABLE MEMBER (
     associate_number INT UNIQUE PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT,
     FOREIGN KEY (user_id) REFERENCES USER(user_id),
 );
 
 CREATE TABLE STAFF (
     staff_number INT UNIQUE PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT,
     salary INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES USER(user_id),
 );
 
 CREATE TABLE TRAINER (
     trainer_number INT UNIQUE PRIMARY KEY,
-    user_id INT NOT NULL,
+    user_id INT,
     salary INT NOT NULL,
     number_of_hours INT NOT NULL,
     number_of_clients INT NOT NULL,
@@ -88,6 +90,7 @@ CREATE TABLE WORKOUT_PLAN (
     plan_name VARCHAR(100) NOT NULL,
     duration INT NOT NULL,
     days_per_week INT NOT NULL,
+    trainer_number INT,
     FOREIGN KEY (trainer_number) REFERENCES TRAINER(trainer_number)
 );
 
