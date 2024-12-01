@@ -138,3 +138,5 @@ CREATE TABLE NOTIFICATION (
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
+
+PRAGMA foreign_keys = ON;
